@@ -2,6 +2,881 @@
 -- Racing configuration, edit this to add or change races
 races = {
     {
+        title = "Test",                                                             -- Race title
+        isEnabled = true,                                                          -- Enable the race
+        showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+        checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+        checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+        mapBlipId = 315,                                                            -- Map blip ID
+        mapBlipColor = 5,                                                           -- Map blip color
+        laps = 2,
+        FlylapandRolling = false,
+        start = { x = -50.0, y = 6326.0, z = 31.0, heading = 135.0, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+        checkpoints = {                                                             -- Checkpoints and finish line
+            { x = -90.0, y = 6316.0, z = 31.0, heading = 135.0, type = 5 },         -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+            { x = -50.0, y = 6326.0, z = 31.0, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+        }
+    }, 
+--     {
+--         title = "Nurburgring nordschleife ",                                                             -- Race title
+--         isEnabled = false,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                                           -- Map blip color
+--         laps = 1,
+--         FlylapandRolling = false,
+--         start = { x = 5706.89990234375, y = 6479.27001953125, z = 440.1099914550781, heading = 133.64, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                                                             -- Checkpoints and finish line
+--             { x = 5446.08984375, y = 6211.41015625, z = 436.9599914550781, heading = 135.0, type = 5 }, 
+--             { x = 5163.669921875, y = 6070.6298828125, z = 427.4599914550781, heading = 135.0, type = 5 }, 
+--             { x = 4749.580078125, y = 5189.669921875, z = 387.4599914550781, heading = 135.0, type = 5 }, 
+--             { x = 5624.089, y = 6628.856, z = 431.82, heading = 135.0, type = 5 }, 
+--             { x = 5822.197, y = 6803.942, z = 448.36, heading = 135.0, type = 5 }, 
+--             { x = 5081.438, y = 6750.373, z = 400.30, heading = 135.0, type = 5 },  
+--             {x = 4609.696, y = 7184.110, z = 386.14, heading = 135.0, type = 5 }, 
+--             {x = 4082.630, y = 8741.888, z = 374.96, heading = 135.0, type = 5 }, 
+--             {x = 4552.733, y = 9767.245, z = 288.79, heading = 135.0, type = 5 }, 
+--             {x = 4633.347, y = 9945.643, z = 300.29, heading = 135.0, type = 5 },  
+--             {x = 5075.530, y = 11095.98, z = 230.90, heading = 135.0, type = 5 },
+--             {x = 5993.361, y = 11073.21, z = 159.49, heading = 135.0, type = 5 }, 
+--             {x = 6966.131, y = 10845.58, z = 220.19, heading = 135.0, type = 5 },
+--             {x = 8532.248, y = 10477.25, z = 378.33, heading = 135.0, type = 5 },
+--             {x = 9707.270, y = 10715.48, z = 405.84, heading = 135.0, type = 5 },
+--             {x = 8920.184, y = 9014.673, z = 357.07, heading = 135.0, type = 5 },
+--             {x = 8255.762, y = 8296.093, z = 376.28, heading = 135.0, type = 5 },
+--             {x = 6981.057, y = 7561.070, z = 395.84, heading = 135.0, type = 5 },
+--             {x = 6103.112, y = 6752.270, z = 432.01, heading = 135.0, type = 5 },  -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             { x = 5704.97021484375, y = 6477.7099609375, z = 441.1499938964844, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         } 
+--     }, 
+
+--     {
+--         title = "Nurburgring GP",                                                             -- Race title
+--         isEnabled = false,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                                         -- Map blip color
+--         laps = 1,
+--         FlylapandRolling = false,
+--         start = { x = 5713.223, y = 6480.880, z = 440.50 , heading = 136.97, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                                                             -- Checkpoints and finish line
+--             { x = 5337.787, y = 6110.758, z = 433.76, heading = 135.0, type = 5 }, 
+--             { x = 5170.224, y = 6251.132, z = 429.87, heading = 135.0, type = 5 },  
+--             { x = 5140.982, y = 6030.473, z = 427.34, heading = 135.0, type = 5 },
+--             { x = 5080.797, y = 5644.046, z = 419.86, heading = 135.0, type = 5 }, 
+--             { x = 4747.435, y = 5191.304, z = 385.49, heading = 135.0, type = 5 },      
+--             { x = 4953.265, y = 5642.727, z = 415.05, heading = 135.0, type = 5 },      
+--             { x = 4898.085, y = 6120.503, z = 424.28, heading = 135.0, type = 5 },      
+--             { x = 5584.235, y = 6596.593, z = 428.29, heading = 135.0, type = 5 },      
+--             { x = 5594.285, y = 6642.304, z = 430.67, heading = 135.0, type = 5 },      
+--             { x = 5862.616, y = 6673.351, z = 441.06, heading = 135.0, type = 5 },           -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             { x = 5705.889, y = 6476.395, z = 440.42, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         }
+--     }, 
+
+--     {
+--         title = "Le Mans",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                                         -- Map blip color
+--         laps = 1,
+--         FlylapandRolling = false,
+--         start = { x = -1249.5899658203125, y = 224.5, z = 923.0900268554688 , heading = 3.9, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                                                             -- Checkpoints and finish line
+--             { x = -91.12000274658205, y = 1756.219970703125, z = 942.8800048828124, heading = 135.0, type = 5 }, 
+--             { x = 937.969970703125, y = -482.7200012207031, z = 917.75, heading = 135.0, type = 5 },  
+--             { x = 1735.27001953125, y = -2576.31005859375, z = 925.22998046875, heading = 135.0, type = 5 },
+--             { x = -961.1300048828124, y = -1648.56005859375, z = 919.0900268554688, heading = 135.0, type = 5 }, 
+--             { x = -1245.6099853515625, y = 7.78000020980835, z = 919.3900146484376, heading = 135.0, type = 5 },           -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             { x = -1249.5899658203125, y = 224.5, z = 923.0900268554688, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         }
+--     }, 
+
+--     {
+--         title = "Yas marina circuit",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 20.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                                         -- Map blip color
+--         laps = 21, 
+--         FlylapandRolling = false,
+--         start = { x = -7090.12, y = 5577.644, z = 18.550  , heading = 206.95, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                                                       -- Checkpoints and finish line
+--             { x = -6791.169921875, y = 5745.52978515625, z = 24.29999923706054, heading = 135.0, type = 5 },
+--             { x = -6311.669921875, y = 5990.490234375, z = 20.02000045776367, heading = 135.0, type = 5 },  
+--             { x = -6504.7998046875, y = 6036.39990234375, z = 20.67000007629394, heading = 135.0, type = 5 },
+--             { x = -7397.3798828125, y =5967.81005859375, z = 20.55999946594238, heading = 135.0, type = 5 }, 
+--             { x = -7658.64013671875, y =5097.08984375, z = 20.47999954223632, heading = 135.0, type = 5 },    
+--             { x = -7343.4501953125, y =5525.3798828125, z = 19.68000030517578, heading = 135.0, type = 5 }, 
+--             { x = -7335.89013671875, y =5922.7001953125, z = 20.09000015258789, heading = 135.0, type = 5 },          -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {  x = -7143.0400390625, y = 5721.81982421875, z = 18.5, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         } 
+--     },  
+
+--     {
+--         title = "Circuit de Spa-Francorchamps ",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                                       -- Map blip color
+--         laps = 1,
+--         FlylapandRolling = false,
+--         start = { x = -4500.03, y = 12645.39, z = 368.81 , heading = 32.65, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                                                          -- Checkpoints and finish line
+--             { x = -4575.61, y = 12941.75, z = 371.28 , heading = 135.0, type = 5 },    
+--             { x = -4104.70, y = 12535.40, z = 354.31 , heading = 135.0, type = 5 },    
+--             { x = -3666.87, y = 11347.64, z = 422.04 , heading = 135.0, type = 5 },   
+--             {x = -3912.78, y = 10972.11, z = 412.92 , heading = 135.0, type = 5 },  
+--             {x = -4069.58, y = 11676.17, z = 347.85 , heading = 135.0, type = 5 },  
+--             {x = -4481.56, y = 11249.66, z = 333.28, heading = 135.0, type = 5 },    
+--             {x = -4827.08, y = 11389.20, z = 328.96, heading = 135.0, type = 5 },   
+--             {x = -4359.04, y = 11859.52, z = 346.12, heading = 135.0, type = 5 }, 
+--             {x = -4449.83, y = 12480.11, z = 363.85, heading = 135.0, type = 5 },    -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {x = -4510.10, y = 12647.84, z = 369.82, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         }
+--     }, 
+
+--     {
+--         title = "FUKUOKA SPEED WAY",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                                       -- Map blip color
+--         laps = 3,
+--         FlylapandRolling = false,
+--         start = { x = -6553.20, y = 2014.971, z = 9.622 , heading = 34.29, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                                                          -- Checkpoints and finish line
+--             {x = -6640.14, y = 2022.914, z = 10.609 , heading = 135.0, type = 5 },   
+--             {x = -5520.44, y = 5997.123, z = 39.865 , heading = 135.0, type = 5 },   
+--             {x = -1115.92, y = 7588.479, z = 10.614, heading = 135.0, type = 5 },  
+--             {x = -1115.92, y = 7588.479, z = 10.614, heading = 135.0, type = 5 },  
+--             {x = -5324.58, y = 6283.048, z = 43.127, heading = 135.0, type = 5 },            -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {x = -6535.14, y = 2087.900, z = 10.611, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         }
+--     }, 
+--     {
+--         title = "FUJISPEEDWAY",                                                             -- Race title
+--         isEnabled = false,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                                       -- Map blip color
+--         laps = 1,
+--         FlylapandRolling = false,
+--         start = { x = -2989.48, y = -4609.04, z = 67.68 , heading = 89.57, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                                                   -- Checkpoints and finish line
+--             {x = -3146.800048828125, y = -4606.4501953125, z = 66.66000366210938 , heading = 135.0, type = 5 },   
+--             {x = -3445.11, y = -4592.84, z = 63.618 , heading = 135.0, type = 5 },   
+--             {x = -3197.94, y = -4445.37, z = 46.171, heading = 135.0, type = 5 },  
+--             {x = -2934.27, y = -4298.27, z = 46.055, heading = 135.0, type = 5 },  
+--             {x = -2583.88, y = -4393.79, z = 47.976, heading = 135.0, type = 5 },  
+--             {x = -1984.97, y = -4126.02, z = 31.831, heading = 135.0, type = 5 }, 
+--             {x = -1939.79, y = -4188.73, z = 35.729, heading = 135.0, type = 5 }, 
+--             {x = -2048.02, y = -4511.63, z = 59.063, heading = 135.0, type = 5 },          -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {x = -2989.48, y = -4609.04, z = 67.68, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         }
+--     }, 
+
+-- {
+--         title = "Marina Bay",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = false,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 15.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                                       -- Map blip color
+--         laps = 21,
+--         FlylapandRolling = false,
+--         start = { x = -5860.02, y = 1551.671, z = 12.151, heading = 7.5, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                                                          -- Checkpoints and finish line
+--             {x = -5924.02, y = 1716.960, z = 11.987 , heading = 135.0, type = 5 },   
+--             {x = -6198.83, y = 1355.489, z = 12.209 , heading = 135.0, type = 5 },   
+--             {x = -6895.94, y = 1460.905, z = 12.488, heading = 135.0, type = 5 },  
+--             {x = -7242.71, y = 1296.575, z = 11.341, heading = 135.0, type = 5 },  
+--             {x = -7222.03, y = 913.3751, z = 12.112, heading = 135.0, type = 5 }, 
+--             {x = -7031.53, y = 1010.739, z = 13.150, heading = 135.0, type = 5 }, 
+--             {x = -6705.16, y = 1180.284, z = 10.896, heading = 135.0, type = 5 }, 
+--             {x = -6477.07, y = 1057.687, z = 10.100, heading = 135.0, type = 5 }, 
+--             {x = -6063.76, y = 1049.725, z = 9.4638, heading = 135.0, type = 5 },           -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {x = -5803.06, y = 1242.494, z = 12.271, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         }
+--     }, 
+
+--     {
+--         title = "Circuit de Barcelona Catalunya",                                                             -- Race title
+--         isEnabled = false,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 30.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                                       -- Map blip color
+--         laps = 1,
+--         FlylapandRolling = true,
+--         start = { x = 7019.983, y = 2247.762, z = 80.377, heading = 145.95, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                                                          -- Checkpoints and finish line
+--             { x = 6452.330, y = 1571.357, z = 75.249 , heading = 135.0, type = 5 }, 
+--             { x = 6333.535, y = 1925.916, z = 92.507, heading = 135.0, type = 5 },   
+--             { x = 6507.160, y = 1673.387, z = 78.520, heading = 135.0, type = 5 },   
+--             { x = 6570.511, y = 2218.761, z = 98.096, heading = 135.0, type = 5 },     
+--             {x = 6842.600, y = 2464.522, z = 98.148, heading = 135.0, type = 5 },  
+--             {x = 7065.749, y = 2593.353, z = 90.583, heading = 135.0, type = 5 },              -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {x = 7022.009, y = 2256.839, z = 81.583, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         }
+--     }, 
+
+--     {
+--         title = "Laguna sera ",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                                       -- Map blip color
+--         laps = 21,
+--         FlylapandRolling = false,
+--         start = {x = -56.3782, y = 2626.624, z = 401.29  , heading = 270.04, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                                                          -- Checkpoints and finish line
+--             { x = 72.88999938964844, y = 2824.4599609375, z = 398.6799926757813 , heading = 135.0, type = 5 },   
+--             { x = -142.94000244140625, y = 3339.760009765625, z = 448.4299926757813 , heading = 135.0, type = 5 },         -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {  x = -5.36999988555908, y = 2611.139892578125, z = 403.2000122070313, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         } 
+--     }, 
+
+--     {
+--         title = "Meple Circuit",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                                       -- Map blip color
+--         laps = 16,
+--         FlylapandRolling = false,
+--         start = { x = 14883.23046875, y = -3256.39990234375, z = 310.55999755859375 , heading = 1.55, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                                                          -- Checkpoints and finish line
+--             { x = 14856.330078125, y = -2935.090087890625, z = 317.9700012207031 , heading = 135.0, type = 5 },   
+--             { x = 14119.3203125, y = -2906.0400390625, z = 324.0199890136719 , heading = 135.0, type = 5 },    
+--             { x = 14156.8896484375, y = -2870.14990234375, z = 336.0199890136719 , heading = 135.0, type = 5 },     
+--             { x = 14794.080078125, y = -3217.669921875, z = 306.0199890136719, heading = 135.0, type = 5 },      -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {  x = 14883.23046875, y = -3256.39990234375, z = 312.55999755859375, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         } 
+--     }, 
+
+--     {
+--         title = "OSAKA LOOP",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                                       -- Map blip color
+--         laps = 1,
+--         FlylapandRolling = false,
+--         start = {x = -373.915, y = -5939.84, z = 65.861 , heading = 342.69, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                                                          -- Checkpoints and finish line
+--             {x = -369.447, y = -4931.13, z = 68.231 , heading = 135.0, type = 5 },   
+--             {x = 290.9722, y = -4804.05, z = 68.453 , heading = 135.0, type = 5 },    
+--             {x = 467.6686, y = -5449.44, z = 66.878, heading = 135.0, type = 5 },     
+--             {x = 497.6860, y = -6139.90, z = 69.101, heading = 135.0, type = 5 }, 
+--             {x = -249.194, y = -6188.54, z = 67.521, heading = 135.0, type = 5 }, 
+--             {x = -369.135, y = -4932.15, z = 68.185, heading = 135.0, type = 5 }, 
+--             {x = 294.3858, y = -4805.55, z = 68.360, heading = 135.0, type = 5 }, 
+--             {x = 465.7259, y = -5409.34, z = 66.882, heading = 135.0, type = 5 }, 
+--             {x = 513.3029, y = -6112.92, z = 68.236, heading = 135.0, type = 5 },  
+--             {x = 245.1967, y = -6910.87, z = 66.885, heading = 135.0, type = 5 },  
+--             {x = -133.380, y = -6403.89, z = 67.042, heading = 135.0, type = 5 },       -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {x = -375.125, y = -5985.52, z = 66.881, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         } 
+--     }, 
+
+--     {
+--         title = "Autodromo Nazionale Monza",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 20.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                                     -- Map blip color
+--         laps = 1,
+--         FlylapandRolling = false, 
+--         start = { x = -159.02999877929688, y = 8946.5498046875, z = 942.4199829101564 , heading = 352.33, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                                                     -- Checkpoints and finish line
+--             { x = -76.47000122070312, y = 9626.0595703125, z = 947.6500244140624  , heading = 135.0, type = 5 },   
+--             { x = 633.9400024414062, y = 10281.66015625, z = 951.6799926757812 , heading = 135.0, type = 5 },
+--             { x = 192.05999755859375, y = 9331.009765625, z = 945.9099731445312 , heading = 135.0, type = 5 },         -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {  x = -169.9600067138672, y = 8997.6396484375, z = 943.4600219726564 , heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         } 
+--     }, 
+
+--     {
+--         title = "MonacoGP",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                                   -- Map blip color
+--         laps = 31,
+--         FlylapandRolling = false,
+--         start = { x = -9760.78, y = -7063.60, z = 10.201 , heading = 198.41, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                                                  -- Checkpoints and finish line
+--             { x = -10217.5595703125, y = -7572.22021484375, z = 56.40999984741211  , heading = 135.0, type = 5 },   
+--             { x = -10086.5498046875, y = -7412.39013671875, z = 9.46000003814697  , heading = 135.0, type = 5 },         -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             { x = -9736.17, y = -7085.67, z = 11.316 , heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         } 
+--     }, 
+
+--     {
+--         title = "Karowa Street Rally",                                                             -- Race title
+--         isEnabled = false,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                               -- Map blip color
+--         laps = 1,
+--         FlylapandRolling = false,
+--         start = { x = -1745.239990234375, y = 7360.169921875, z = 272.7099914550781    , heading = 30.42, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                                        -- Checkpoints and finish line
+--             { x = -1792.239990234375, y = 7432.490234375, z = 275.8699951171875    , heading = 135.0, type = 5 },      
+--             { x = -1810.3399658203127, y = 7468.14990234375, z = 275.8399963378906     , heading = 135.0, type = 5 },       
+--             { x = -1834.5, y = 7318.740234375, z = 282.9700012207031      , heading = 135.0, type = 5 },       
+--             { x = -1892.0799560546875, y = 7323.0498046875, z = 293.4100036621094     , heading = 135.0, type = 5 },       
+--             { x = -1957.7099609375, y = 7363.72021484375, z = 296.760009765625      , heading = 135.0, type = 5 },       
+--             { x = -1863.5999755859375, y = 7325.60986328125, z = 284.1600036621094    , heading = 135.0, type = 5 },     
+--             { x = -1810.3399658203127, y = 7468.14990234375, z = 275.8399963378906     , heading = 135.0, type = 5 },                 -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {x = -1745.239990234375, y = 7360.169921875, z = 273.7099914550781 , heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         } 
+--     }, 
+
+--     {
+--         title = "Texas Motor Speedway ",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                               -- Map blip color
+--         FlylapandRolling = false,
+--         laps = 2,
+--         start = { x = 3878.719970703125, y = -7271.39013671875, z = 598.2000122070312   , heading = 269.71, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                                   -- Checkpoints and finish line
+--             { x = 4421.419921875, y = -7225.39990234375, z = 599.6099853515625  , heading = 135.0, type = 5 },   
+--             { x = 4253.97021484375, y = -6817.3701171875, z = 600.3300170898438  , heading = 135.0, type = 5 },  
+--             { x = 4049.5400390625, y = -7339.43017578125, z = 599.5499877929688  , heading = 135.0, type = 5 }, 
+--             { x = 4253.97021484375, y = -6817.3701171875, z = 600.3300170898438  , heading = 135.0, type = 5 },               -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             { x = 4049.5400390625, y = -7339.43017578125, z = 599.5499877929688 , heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         } 
+--     }, 
+
+--     {
+--         title = "Deutschlandring ",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                               -- Map blip color
+--         laps = 13,
+--         FlylapandRolling = false,
+--         start = { x = 13098.7099609375, y = 12980.5302734375, z = 356.7999938964844   , heading = 49.51, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                                   -- Checkpoints and finish line
+--             { x = 13011.8896484375, y = 14904.7802734375, z = 17.9700012207031  , heading = 135.0, type = 5 },   
+--             { x = 14724.599609375, y = 12756.58984375, z = 190.4499969482422  , heading = 135.0, type = 5 },                -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             { x = 13098.7099609375, y = 12980.5302734375, z = 357.3999938964844 , heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         } 
+--     }, 
+
+--     {
+--         title = "Nagoya Loop GT",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                           -- Map blip color
+--         laps = 2,
+--         FlylapandRolling = false,
+--         start = { x = -4866.93017578125, y = 318.25, z = 27.70000076293945   , heading = 184.61, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                             -- Checkpoints and finish line
+--             { x = -5842.52978515625, y = -47.06000137329101, z = 28.70000076293945  , heading = 135.0, type = 5 },                  -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             { x = -4866.93017578125, y = 318.25, z = 27.70000076293945 , heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         } 
+--     },
+
+--     {
+--         title = "Chang international circuit ",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 30.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 0.5,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                           -- Map blip color
+--         laps = 1,
+--         FlylapandRolling = false,
+--         start = { x = -463.5299987792969, y = -14.11999988555908, z = 1307.199951171875   , heading = 330.93, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                             -- Checkpoints and finish line
+--             { x = 537.8200073242188, y = -46.41999816894531, z = 1301.6700439453125  , heading = 135.0, type = 5 },    
+--             { x = 68.56999969482422, y = -63.33000183105469, z = 1307.72998046875  , heading = 135.0, type = 5 },    
+--             { x = -244.97000122070312, y = -281.6499938964844, z = 1308.0899658203125  , heading = 135.0, type = 5 },                    -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             { x = -459.30999755859375, y = -13.1899995803833, z = 1307.699951171875 , heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         } 
+--     },
+--     {
+--         title = "AKINA Downhill",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                           -- Map blip color
+--         laps = 1,
+--         FlylapandRolling = false,
+--         start = { x = -4161.830078125, y = -2942.179931640625, z = 1130.3000244140625  , heading = 349.85, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                        -- Checkpoints and finish line
+--             {x = -4109.0498046875, y = -2616.570068359375, z = 1117.9000244140625, heading = 135.0, type = 5 },    
+--             {x = -4183.85009765625, y = -2427.3701171875, z = 1080.1500244140625, heading = 135.0, type = 5 },    
+--             {x = -4023.489990234375, y = -2375.639892578125, z = 1055.8900146484375, h = 39.51 , heading = 135.0, type = 5 },        
+--             {x = -3853.9599609375, y = -2269.969970703125, z = 1022.219970703125, heading = 135.0, type = 5 },
+--             {x = -3493.699951171875, y = -1871.050048828125, z = 965.219970703125, heading = 135.0, type = 5 }, 
+--             {x = -3202.719970703125, y = -1817.010009765625, z = 876.8599853515625, heading = 135.0, type = 5 }, 
+--             {x = -3479.219970703125, y = -1319.7099609375, z = 822.6799926757812, heading = 135.0, type = 5 }, 
+--             {x = -3220.14990234375, y = -1082.3499755859375, z = 781.9299926757812, heading = 135.0, type = 5 }, 
+--             {x = -3018.840087890625, y = -1136.75, z = 722.8499755859375, heading = 135.0, type = 5 },                -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {x = -2599.919921875, y = -1222.77001953125, z = 673.0900268554688, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         } 
+--     },
+--     {
+--         title = "Akagi Downhill NEW",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                           -- Map blip color
+--         laps = 1,
+--         FlylapandRolling = false,
+--         start = { x = -3879.56005859375, y = 4011.320068359375, z = 561.4099731445312, heading = 137.3, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                        -- Checkpoints and finish line
+--             {x = -3980.8798828125, y = 3758.31005859375, z = 513.1900024414062, heading = 135.0, type = 5 },    
+--             {x = -3817.89990234375, y = 3656.2900390625, z = 478.8399963378906, heading = 135.0, type = 5 },    
+--             {x = -3832.840087890625, y = 3157.330078125, z = 422.25, heading = 135.0, type = 5 },        
+--             {x = -4216.18017578125, y = 2841.68994140625, z = 333.9400024414063, heading = 135.0, type = 5 },
+--             {x = -4725.22998046875, y = 2564.7900390625, z = 267.3699951171875, heading = 135.0, type = 5 }, 
+--             {x = -4981.7998046875, y = 2374.9599609375, z = 214.50999450683597, heading = 135.0, type = 5 },              -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {x = -5311.97998046875, y = 2217.47998046875, z = 153.2400054931641, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         } 
+--     },
+--     {
+--         title = "Akagi UpHill",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                           -- Map blip color
+--         laps = 1,
+--         FlylapandRolling = false,
+--         start = {x = -2827.919921875, y = -13951.4599609375, z = 284.2000122070313, heading = 191.16, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                        -- Checkpoints and finish line
+--             {x = -2798.010009765625, y = -13850.0703125, z = 299.6099853515625, heading = 135.0, type = 5 },    
+--             {x = -2660.360107421875, y = -13705.25, z = 335.5299987792969, heading = 135.0, type = 5 },    
+--             {x = -2475.010009765625, y = -13125.1796875, z = 422.3200073242188, h = 39.51 , heading = 135.0, type = 5 },        
+--             {x = -2216.5, y = -12952.6396484375, z = 468.0299987792969, heading = 135.0, type = 5 },
+--             {x = -2512.340087890625, y = -12044.25, z = 626.469970703125, heading = 135.0, type = 5 }, 
+--             {x = -2744.97998046875, y = -11957.259765625, z = 702.3300170898438, heading = 135.0, type = 5 },              -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {x = -2718.35009765625, y = -11795.080078125, z = 717.4500122070312, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         } 
+--     },
+--     {
+--         title = "Tsubaki Line ",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                           -- Map blip color
+--         laps = 1,
+--         FlylapandRolling = false,
+--         start = {x = 4754.5, y = 9927.1201171875, z =  1273.58994140625, heading = 150.37, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                        -- Checkpoints and finish line
+--             {x = 4754.22021484375, y = 9793.2998046875, z = 1264.1500244140625, heading = 135.0, type = 5 },    
+--             {x = 5147.60009765625, y = 8958.9501953125, z = 1221.7900390625, heading = 135.0, type = 5 },    
+--             {x = 5081.39013671875, y = 8907.7001953125, z = 1165.199951171875, h = 39.51 , heading = 135.0, type = 5 },        
+--             {x = 5067.85009765625, y = 8540.7197265625, z = 1094.8199462890625, heading = 135.0, type = 5 },
+--             {x = 5793.2099609375, y = 8062.66015625, z = 1016.489990234375, heading = 135.0, type = 5 }, 
+--             {x = 5240.89990234375, y = 8076.02001953125, z = 957.8300170898438, heading = 135.0, type = 5 },              -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {x = 4503.990234375, y = 8028.3798828125, z = 868.6500244140625, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         } 
+--     },
+--     {
+--         title = "Tsubaki Line ",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                           -- Map blip color
+--         laps = 1,
+--         FlylapandRolling = false,
+--         start = {x = 6160.6298828125, y = 10664.01953125, z =  1222.8, heading = 261.92, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                        -- Checkpoints and finish line
+--             {x = 7248.97998046875, y = 10954.740234375, z = 1176.6300048828125, heading = 135.0, type = 5 },    
+--             {x = 8884.33984375, y = 12728.580078125, z = 933.6699829101564, heading = 135.0, type = 5 },    
+--             {x = 10146.330078125, y = 13060.2099609375, z = 690.25, h = 39.51 , heading = 135.0, type = 5 },                      -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {x = 12186.759765625, y = 15329.3798828125, z = 310.6099853515625, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         } 
+--     },
+--     {
+--         title = "Hapogahara",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                           -- Map blip color
+--         laps = 1,
+--         FlylapandRolling = false,
+--         start = {x = 5032.18017578125, y = -7936.85986328125, z = 160.1699981689453, heading = 336.73, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                       -- Checkpoints and finish line
+--             {x = 4409.553, y = -7695.67, z = 45.067, heading = 135.0, type = 5 },                 -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {x = 4211.739, y = -6412.01, z = 65.430, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         } 
+--     },
+--     {
+--         title = "Irohazaka",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                           -- Map blip color
+--         laps = 1,
+--         FlylapandRolling = false,
+--         start = {x = -5608.97021484375, y = -697.2899780273438, z = 414.3700073242188, heading = 330.34, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                       -- Checkpoints and finish line
+--             {x = -5509.60986328125, y = -538.8900146484375, z = 415.1400146484375, heading = 135.0, type = 5 },    
+--             {x = -5208.68017578125, y = -158.1699981689453, z = 392.7200012207031, heading = 135.0, type = 5 },    
+--             {x = -5195.740234375, y = -200.4199981689453, z = 364.0299987792969, h = 39.51 , heading = 135.0, type = 5 },        
+--             {x = -4952.259765625, y = 50.97999954223633, z = 331.6600036621094, heading = 135.0, type = 5 },
+--             {x = -4887.52978515625, y = 18.45000076293945, z = 291.1000061035156, heading = 135.0, type = 5 }, 
+--             {x = -4833.31005859375, y = 10.86999988555908, z = 273.9100036621094, heading = 135.0, type = 5 }, 
+--             {x = -4836.97998046875, y = -40.4000015258789, z = 253.55999755859375, heading = 135.0, type = 5 }, 
+--             {x = -4782.330078125, y = -101.20999908447266, z = 224.13999938964844, heading = 135.0, type = 5 }, 
+--             {x = -4679.27001953125, y = -79.5, z = 182.52000427246097, heading = 135.0, type = 5 }, 
+--             {x = -4404.39990234375, y = -232.6999969482422, z = 115.37000274658205, heading = 135.0, type = 5 },               -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {x = -3928.8798828125, y = -404.7900085449219, z = 74.30000305175781, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         } 
+--     },
+--     {
+--         title = "Myogi Downhill",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                           -- Map blip color
+--         laps = 1,
+--         FlylapandRolling = false,
+--         start = {x = -8764.3203125, y = -3242.389892578125, z = 220.37999877929688, heading = 334.14, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                       -- Checkpoints and finish line
+--             {x = -7938.41015625, y = -2818.139892578125, z = 186.2299957275391, heading = 135.0, type = 5 },    
+--             {x = -7598.39990234375, y = -3514.14990234375, z = 124.41999816894533, heading = 135.0, type = 5 },    
+--             {x = -6727.97998046875, y = -3604.39990234375, z = 74.06999969482422, h = 39.51 , heading = 135.0, type = 5 },                      -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {x = -7179.52978515625, y = -2730.75, z = 5.13999986648559, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         } 
+--     },
+
+--     {
+--         title = "Imola Circuit",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                           -- Map blip color
+--         laps = 1,
+--         FlylapandRolling = false,
+--         start = {x = 5575.827, y = -569.821, z = 15.462, heading = 78.99, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                       -- Checkpoints and finish line
+--             {x = 5095.073, y = -655.352, z = 17.431, heading = 135.0, type = 5 },    
+--             {x = 4914.086, y = -895.651, z = 18.629, heading = 135.0, type = 5 },    
+--             {x = 4829.242, y = -1195.76, z = 19.599, heading = 135.0, type = 5 },   
+--             {x = 4707.606, y = -1469.96, z = 29.601, heading = 135.0, type = 5 },         
+--             {x = 5293.736, y = -1380.14, z = 45.273, heading = 135.0, type = 5 },      
+--             {x = 5298.361, y = -1004.72, z = 25.114, heading = 135.0, type = 5 },      
+--             {x = 5863.940, y = -991.298, z = 45.028, heading = 135.0, type = 5 },     
+--             {x = 6287.850, y = -678.844, z = 29.850, heading = 135.0, type = 5 },    
+--             {x = 6444.760, y = -530.848, z = 15.026, heading = 135.0, type = 5 },   
+--             {x = 6208.958, y = -540.381, z = 13.603, heading = 135.0, type = 5 },       -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {x = 5805.539, y = -596.948, z = 15.056, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         } 
+--     },
+
+--     {
+--         title = "Suzuka Circuit",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                           -- Map blip color
+--         laps = 26,
+--         FlylapandRolling = false,
+--         start = {x = -2013.72, y = -1780.13, z = 44.544, heading = 238.41, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                       -- Checkpoints and finish line
+--             {x = -1700.74, y = -2010.55, z = 33.778, heading = 135.0, type = 5 },    
+--             {x = -2002.32, y = -1981.85, z = 40.995, heading = 135.0, type = 5 },    
+--             {x = -2255.42, y = -1883.78, z = 54.618, h = 39.51 , heading = 135.0, type = 5 },        
+--             {x = -2706.38, y = -1798.13, z = 65.973, h = 39.51 , heading = 135.0, type = 5 },     
+--             {x = -2947.59, y = -1957.74, z = 59.876, h = 39.51 , heading = 135.0, type = 5 },   
+--             {x = -3118.22, y = -1636.59, z = 72.237, h = 39.51 , heading = 135.0, type = 5 },   
+--             {x = -3802.92, y = -1720.19, z = 74.005, h = 39.51 , heading = 135.0, type = 5 },    
+--             {x = -3349.68, y = -1934.64, z = 65.756, h = 39.51 , heading = 135.0, type = 5 }, 
+--             {x = -2609.78, y = -1615.08, z = 70.209, h = 39.51 , heading = 135.0, type = 5 },   
+--             {x = -2585.00, y = -1581.80, z = 70.135, h = 39.51 , heading = 135.0, type = 5 },    -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {x = -2310.98, y = -1583.14, z = 54.930, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         } 
+--     },
+--     {
+--         title = "Momiji Downhill",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                           -- Map blip color
+--         laps = 1,
+--         FlylapandRolling = false,
+--         start = {x = -8018.35986328125, y = 7218.759765625, z = 464.2000061035156, heading = 141.33, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                       -- Checkpoints and finish line
+--             {x = -8070.33984375, y = 7020.2001953125, z = 454.9100036621094, heading = 135.0, type = 5 },    
+--             {x = -8232.08984375, y = 7127.06982421875, z = 398.69000244140625, heading = 135.0, type = 5 },    
+--             {x = -8295.4501953125, y = 6640.259765625, z = 362.19000244140625, h = 39.51 , heading = 135.0, type = 5 },        
+--             {x = -8489.759765625, y = 6805.41015625, z = 320.1600036621094, heading = 135.0, type = 5 },
+--             {x = -8953.2998046875, y = 6976.259765625, z = 276.2900085449219, heading = 135.0, type = 5 }, 
+--             {x = -9103.8798828125, y = 6731.240234375, z = 251.6499938964844, heading = 135.0, type = 5 }, 
+--             {x = -9209.5302734375, y = 6060.3798828125, z =  224.4900054931641, heading = 135.0, type = 5 }, 
+--             {x = -9354.7099609375, y = 5884.2001953125, z = 165.52000427246097, heading = 135.0, type = 5 }, 
+--             {x = -8927.73046875, y = 5890.81982421875, z = 145.05999755859375, heading = 135.0, type = 5 },               -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {x = -9164.1201171875, y = 5826.14990234375, z = 133.72000122070312, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         } 
+--     },
+--     {
+--         title = "Sadamine Downhill",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                           -- Map blip color.
+--         laps = 1,
+--         FlylapandRolling = false,
+--         start = {x = -2150.75, y = 8250.580078125, z = 403.4599914550781, heading = 353.33, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                       -- Checkpoints and finish line
+--             {x = -2197.860107421875, y = 8345.169921875, z = 387.6099853515625, heading = 135.0, type = 5 },    
+--             {x = -2447.75, y = 8660.4501953125, z = 348.9800109863281, heading = 135.0, type = 5 },    
+--             {x = -2786.3798828125, y =8996.4404296875, z = 319.2200012207031, h = 39.51 , heading = 135.0, type = 5 },        
+--             {x = -3005.0, y = 9481.9697265625, z = 282.9200134277344, heading = 135.0, type = 5 },
+--             {x = -2787.739990234375, y = 9535.51953125, z = 220.25999450683597, heading = 135.0, type = 5 }, 
+--             {x = -2605.469970703125, y = 9490.1796875, z = 177.1300048828125, heading = 135.0, type = 5 }, 
+--             {x = -2767.780029296875, y = 10014.2099609375, z =  137.16000366210938, heading = 135.0, type = 5 }, 
+--             {x = -2670.030029296875, y = 10068.5703125, z = 77.87999725341797, heading = 135.0, type = 5 }, 
+--             {x = -2475.070068359375, y = 10030.240234375, z = 45.11999893188476, heading = 135.0, type = 5 },               -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {x = -2283.64990234375, y = 9978.75, z = 28.89999961853027, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         } 
+--     },
+--     {
+--         title = "BuahusT GP",                                                             -- Race title
+--         isEnabled = false,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 30.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                           -- Map blip color
+--         laps = 1,
+--         FlylapandRolling = false,
+--         start = {x = 847.0888, y = 10044.19, z = 296.78, heading = 90.92, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                       -- Checkpoints and finish line
+--             {x = 605.6201171875, y = 9317.4697265625, z = 333.3299865722656, heading = 135.0, type = 5 },    
+--             {x = 614.1900024414062, y = 8110.60009765625, z = 446.55999755859375, heading = 135.0, type = 5 },    
+--             {x = 1136.4200439453125, y = 8828.509765625, z = 324.8699951171875, h = 39.51 , heading = 135.0, type = 5 },                      -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {x = 845.6799926757812, y = 10047.0400390625, z = 297.3399963378906, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         } 
+--     },
+--     {
+--         title = "Bathurst 15/15 round",                                                             -- Race title
+--         isEnabled = false,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                           -- Map blip color
+--         laps = 15, 
+--         FlylapandRolling = true,
+--         start = {x = 700.1199951171875, y = 10032.2900390625, z =  299.57000732421875, heading = 88.51, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                       -- Checkpoints and finish line
+--             {x = 605.6201171875, y = 9317.4697265625, z = 333.3299865722656, heading = 135.0, type = 5 },    
+--             {x = 614.1900024414062, y = 8110.60009765625, z = 446.55999755859375, heading = 135.0, type = 5 },    
+--             {x = 1136.4200439453125, y = 8828.509765625, z = 324.8699951171875, h = 39.51 , heading = 135.0, type = 5 },                      -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {x = 845.6799926757812, y = 10047.0400390625, z = 297.3399963378906, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         } 
+--     },
+--     {
+--         title = "Usui Pass",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                           -- Map blip color
+--         laps = 1,
+--         FlylapandRolling = false,
+--         start = {x = 435.7099914550781, y = -69.69000244140625, z =  892.7999755859375, heading = 333.85, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                -- Checkpoints and finish line
+--             {x = 620.8900146484375, y = 305.6000061035156, z = 871.5399780273438, heading = 135.0, type = 5 },    
+--             {x = 940.3499755859376, y = 821.3200073242188, z = 839.010009765625, heading = 135.0, type = 5 },    
+--             {x = 1575.5799560546875, y = 993.1900024414064, z = 775.6699829101562, h = 39.51 , heading = 135.0, type = 5 },    
+--             {x = 1782.8699951171875, y = 1079.969970703125, z = 726.719970703125, h = 39.51 , heading = 135.0, type = 5 },                    -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {x = 2591.919921875, y = 1006.9199829101564, z = 668.4199829101562, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         } 
+--     },
+--     {
+--         title = "North Chumash Rally Track",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                           -- Map blip color
+--         laps = 1,
+--         FlylapandRolling = false,
+--         start = {x = -2257.43994140625, y = 4332.33984375, z =  43.38000106811523, heading = 15.46, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                -- Checkpoints and finish line
+--             {x = -1943.8599853515625, y = 4459.7099609375, z = 34.79000091552734, heading = 135.0, type = 5 },    
+--             {x = -1505.3699951171875, y = 4306.18994140625, z = 5.57000017166137, heading = 135.0, type = 5 },    
+--             {x = -1377.1500244140625, y = 4162.52001953125, z = 58.31999969482422, h = 39.51 , heading = 135.0, type = 5 },    
+--             {x = -1014.3200073242188, y = 4144.43017578125, z = 121.4000015258789, heading = 135.0, type = 5 },    
+--             {x = -236.30999755859375, y = 3912.679931640625, z = 38.2400016784668, heading = 135.0, type = 5 },    
+--             {x = -120.5999984741211, y = 4289.5, z = 45.45999908447265, heading = 135.0, type = 5 },      
+--             {x = -448.8699951171875, y = 4541.47021484375, z = 97.7699966430664, heading = 135.0, type = 5 },  
+--             {x = -991.8900146484376, y = 4551.18994140625, z = 128.5, heading = 135.0, type = 5 },       
+--             {x = -1159.77001953125, y = 4632.5400390625, z = 145.52000427246097, heading = 135.0, type = 5 },          
+--             {x = -1512.7099609375, y = 4682.72021484375, z = 38.04999923706055, heading = 135.0, type = 5 },  
+--             {x = -1296.7099609375, y =4492.830078125, z = 21.09000015258789, heading = 135.0, type = 5 },   
+--             {x = -881.1799926757812, y =4414.06005859375, z = 20.88999938964843, heading = 135.0, type = 5 }, 
+--             {x = -514.7000122070312, y =4360.2900390625, z = 67.58000183105469, heading = 135.0, type = 5 },                    -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {x = -252.55999755859375, y =4228.77001953125, z = 44.70999908447265, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--         } 
+--     },
+--     {
+--         title = "Nagoya Loop Expressway",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = true,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 10.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 1.0,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                           -- Map blip color
+--         laps = 10,
+--         FlylapandRolling = false,
+--         start = { x = -4864.56, y = 467.6530, z = 28.660   , heading = 182.32, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                             -- Checkpoints and finish line
+--             { x = -4833.22, y = -244.523, z = 29.397  , heading = 180.65, type = 5 },                  -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             { x = -4744.43, y = -703.813, z = 29.843 , heading = 184.61, type = 5 },         -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
+--             { x = -5501.65, y = -722.540, z = 35.346 , heading = 82.32, type = 5 },
+--             { x = -5787.56, y = -363.148, z = 29.403 , heading = 8.34, type = 5 },
+--             { x = -5767.43, y = 772.8373, z = 27.531 , heading = 265.58, type = 5 },
+--             { x = -4872.44, y = 463.8050, z = 29.403 , heading = 183.3, type = 9 },
+--         } 
+--     },
+--     {
+--         title = "GoKart",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = false,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 7.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 0.9,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                           -- Map blip color
+--         laps = 26, 
+--         FlylapandRolling = false,
+--         start = {x = 875.8406, y = 1122.176, z = 458.54   , heading = 308.0, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                             -- Checkpoints and finish line
+--             {x = 860.9765, y = 1169.747, z = 459.64  , heading = 180.65, type = 5 },    
+--             {x = 766.6106, y = 1227.377, z = 462.27 , heading = 180.65, type = 5 }, 
+--             {x = 789.5868, y = 1196.050, z = 463.85, heading = 180.65, type = 5 },        
+--             {x = 729.7537, y = 1234.816, z = 464.42 , heading = 180.65, type = 5 }, 
+--             {x = 778.6451, y = 1260.180, z = 462.17 , heading = 180.65, type = 5 },    
+--             {x = 978.6168, y = 1125.082, z = 459.66, heading = 180.65, type = 5 },   
+--             {x = 930.9633, y = 1136.321, z = 460.55, heading = 180.65, type = 5 },   
+--             {x = 1002.732, y = 1105.790, z = 458.65 , heading = 180.65, type = 5 },        
+--             {x = 1032.408, y = 1093.728, z = 458.18 , heading = 180.65, type = 5 },                   -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {x = 907.7283, y = 1103.311, z = 459.30 , heading = 183.3, type = 9 },
+--         } 
+--     },
+--     {
+--         title = "Nana",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = false,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 8.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 0.9,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                           -- Map blip color
+--         laps = 1, 
+--         FlylapandRolling = false,
+--         start = { x = 5138.101, y = 10202.56, z = 1267.8   , heading = 289.21, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                             -- Checkpoints and finish line
+--             {x = 5812.559, y = 10178.43, z = 1260.8 , heading = 180.65, type = 5 },    
+--             {x = 6115.950, y = 9838.716, z = 1203.9 , heading = 180.65, type = 5 }, 
+--             {x = 7117.971, y = 10416.21, z = 1078.1, heading = 180.65, type = 5 },        
+--             {x = 7346.709, y = 10659.12, z = 984.85 , heading = 180.65, type = 5 }, 
+--             {x = 7520.679, y = 10933.80, z = 919.09 , heading = 180.65, type = 5 },    
+--             {x = 7778.639, y = 11071.70, z = 885.64 , heading = 180.65, type = 5 },                    -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {x = 8080.373, y = 11460.26, z = 841.20 , heading = 183.3, type = 9 },
+--         } 
+--     },
+--     {
+--         title = "Shomaru",                                                             -- Race title
+--         isEnabled = true,                                                          -- Enable the race
+--         showWaypoints = false,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
+--         checkpointRadius = 8.0,                                                    -- Radius of checkpoint
+--         checkpointTransparency = 0.9,                                               -- Checkpoint transparancy
+--         mapBlipId = 315,                                                            -- Map blip ID
+--         mapBlipColor = 5,                                           -- Map blip color
+--         laps = 1, 
+--         FlylapandRolling = false,
+--         start = { x = -2516.30, y = -2524.72, z = 1505.5   , heading = 5.55, type = 5 },     -- Starting race coordinates (/saveRaceStart)
+--         checkpoints = {                             -- Checkpoints and finish line
+--             {x = -2676.08, y = -2414.03, z = 1517.9 , heading = 180.65, type = 5 },    
+--             {x = -2840.02, y = -2274.50, z = 1534.2 , heading = 180.65, type = 5 }, 
+--             {x = -3104.92, y = -2091.92, z = 1565.2, heading = 180.65, type = 5 },        
+--             {x = -3279.88, y = -1933.49, z = 1566.6 , heading = 180.65, type = 5 }, 
+--             {x = -3286.46, y = -1724.52, z = 1547.6 , heading = 180.65, type = 5 },    
+--             {x = -3283.82, y = -1607.31, z = 1530.6 , heading = 180.65, type = 5 },     
+--             {x = -3460.88, y = -1521.79, z = 1520.6 , heading = 180.65, type = 5 }, 
+--             {x = -3793.62, y = -1311.00, z = 1485.1, heading = 180.65, type = 5 }, 
+--             {x = -3541.80, y = -573.366, z = 1395.2 , heading = 180.65, type = 5 }, 
+--             {x = -3907.69, y = -640.961, z = 1359.3 , heading = 180.65, type = 5 },                -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+--             {x = -4222.42, y = -430.981, z = 1324.3 , heading = 183.3, type = 9 },
+--         } 
+--     },
+}
+
+endurances = {
+    {
         title = "TEST",                                                             -- Race title
         isEnabled = false,                                                          -- Enable the race
         showWaypoints = false,                                                      -- Set GPS waypoints, waypoint will always be set to next checkpoint + 1
@@ -11,446 +886,8 @@ races = {
         mapBlipColor = 5,                                                           -- Map blip color
         start = { x = -50.0, y = 6326.0, z = 31.0, heading = 135.0, type = 5 },     -- Starting race coordinates (/saveRaceStart)
         checkpoints = {                                                             -- Checkpoints and finish line
-            { x = -60.0, y = 6316.0, z = 31.0, heading = 135.0, type = 5 },         -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
+            { x = -90.0, y = 6316.0, z = 31.0, heading = 135.0, type = 5 },         -- Race checkpoints, type 5 is a normal checkpoint (/saveRaceCp)
             { x = -50.0, y = 6326.0, z = 31.0, heading = 135.0, type = 9 }          -- Race checkpoints, type 9 is a finish line (/saveRaceEnd)
         }
     },
-    {
-        title = "Sandy Airfield",
-        isEnabled = true,
-        showWaypoints = false,
-        checkpointRadius = 24.0,
-        checkpointTransparency = 1.0,
-        mapBlipId = 315,
-        mapBlipColor = 5,
-        start = { x = 1718.0, y = 3254.5, z = 40.5, heading = 105.0, type = 5 },
-        checkpoints = {                                                                                         
-            {x = 1472.0715332032, y = 3188.8779296875, z = 39.729152679444, heading = 105.37201690674, type = 5},
-            {x = 1073.3435058594, y = 3043.9104003906, z = 40.528339385986, heading = 197.2525177002, type = 5},
-            {x = 1337.2255859375, y = 3082.1672363282, z = 39.850803375244, heading = 283.56066894532, type = 5},
-            {x = 1598.4370117188, y = 3195.6440429688, z = 39.846961975098, heading = 130.9425354004, type = 9}
-        }
-    },
-    {
-        title = "Airport Drag Race",
-        isEnabled = true,
-        showWaypoints = false,
-        checkpointRadius = 24.0,
-        checkpointTransparency = 1.0,
-        mapBlipId = 315,
-        mapBlipColor = 5,
-        start = { x = -1355.0, y = -2245.0, z = 13.5, heading = 150.0, type = 5 },
-        checkpoints = {
-            { x = -1455.0, y = -2419.0, z = 13.5, heading = 150.0, type = 5 },
-            { x = -1555.0, y = -2593.0, z = 13.5, heading = 150.0, type = 9 }
-        }
-    },
-    {
-        title = "Airport Circuit",
-        isEnabled = true,
-        showWaypoints = true,
-        checkpointRadius = 24.0,
-        checkpointTransparency = 1.0,
-        mapBlipId = 315,
-        mapBlipColor = 5,
-        start = { x = -1483.8513183594, y = -2466.4462890625, z = 13.23726272583, heading = 149.99917602539, type = 5 },
-        checkpoints = {
-        
-            { x = -1680.8255615234, y = -2878.8698730469, z = 13.235111236572, heading = 176.03915405273, type = 5 },
-            { x = -1470.9576416016, y = -3065.8903808594, z = 13.244960784912, heading = 238.63464355469, type = 5 },
-            { x = -1208.2521972656, y = -3304.4533691406, z = 13.231184005737, heading = 208.5503692627, type = 5 },
-            { x = -1042.4713134766, y = -3443.3386230469, z = 13.237512588501, heading = 240.62759399414, type = 5 },
-            { x = -873.10095214844, y = -3418.6193847656, z = 13.236061096191, heading = 329.0498046875, type = 5 },
-            { x = -830.09899902344, y = -3206.4260253906, z = 13.236886978149, heading = 61.586364746094, type = 5 },
-            { x = -1018.353515625, y = -3061.9873046875, z = 13.237516403198, heading = 57.20064163208, type = 5 },
-            { x = -1414.3126220703, y = -2730.6306152344, z = 13.237626075745, heading = 1.111701965332, type = 5 },
-            { x = -1208.3099365234, y = -2401.0974121094, z = 13.238660812378, heading = 306.29351806641, type = 5 },
-            { x = -1119.1400146484, y = -2341.23046875, z = 13.236170768738, heading = 329.97036743164, type = 5 },
-            { x = -1266.2938232422, y = -2207.615234375, z = 13.237180709839, heading = 60.200450897217, type = 5 },
-            { x = -1483.8513183594, y = -2466.4462890625, z = 13.23726272583, heading = 149.99917602539, type = 9 }
-        }
-    },
-    {
-        title = "North GP",
-        isEnabled = true,
-        showWaypoints = true,
-        checkpointRadius = 24.0,
-        checkpointTransparency = 1.0,
-        mapBlipId = 315,
-        mapBlipColor = 5,
-        start = {x = 0.0, y = 6376.0, z = 31.0, heading = 135.0, type = 5 },
-        checkpoints = {
-            {x = -450.0, y = 5913.0, z = 32.0, heading = 0.0, type = 5},
-            {x = -650.0, y = 5570.0, z = 38.0, heading = 0.0, type = 5},
-            {x = -1285.0, y = 5254.0, z = 52.0, heading = 0.0, type = 5},
-            {x = -1568.0, y = 4934.0, z = 61.0, heading = 0.0, type = 5},
-            {x = -2020.0, y = 4498.0, z = 57.0, heading = 0.0, type = 5},
-            {x = -2170.0, y = 4444.0, z = 62.0, heading = 0.0, type = 5},
-            {x = -2237.0, y = 4282.0, z = 46.0, heading = 0.0, type = 5},
-            {x = -2570.0, y = 3352.0, z = 13.0, heading = 0.0, type = 5},
-            {x = -2670.0, y = 2284.0, z = 21.0, heading = 0.0, type = 5},
-            {x = -2465.0, y = 2294.0, z = 31.0, heading = 0.0, type = 5},
-            {x = -2025.0, y = 2336.0, z = 34.0, heading = 0.0, type = 5},
-            {x = -1600.0, y = 2412.0, z = 26.0, heading = 0.0, type = 5},
-            {x = -1323.0, y = 2465.0, z = 25.0, heading = 0.0, type = 5},
-            {x = -1080.0, y = 2695.0, z = 20.0, heading = 0.0, type = 5},
-            {x = -882.0, y = 2750.0, z = 23.0, heading = 0.0, type = 5},
-            {x = -556.0, y = 2850.0, z = 34.0, heading = 0.0, type = 5},
-            {x = -320.0, y = 2890.0, z = 45.0, heading = 0.0, type = 5},
-            {x = 0.0, y = 2786.0, z = 57.0, heading = 0.0, type = 5},
-            {x = 350.0, y = 2655.0, z = 44.0, heading = 0.0, type = 5},
-            {x = 825.0, y = 2700.0, z = 40.0, heading = 0.0, type = 5},
-            {x = 1600.0, y = 2815.0, z = 38.0, heading = 0.0, type = 5},
-            {x = 2230.0, y = 3010.0, z = 45.0, heading = 0.0, type = 5},
-            {x = 2470.0, y = 2894.0, z = 47.0, heading = 0.0, type = 5},
-            {x = 2775.0, y = 3330.0, z = 56.0, heading = 0.0, type = 5},
-            {x = 2915.0, y = 4087.0, z = 50.0, heading = 0.0, type = 5},
-            {x = 2585.0, y = 5320.0, z = 44.0, heading = 0.0, type = 5},
-            {x = 2340.0, y = 5880.0, z = 47.0, heading = 0.0, type = 5},
-            {x = 1940.0, y = 6320.0, z = 43.0, heading = 0.0, type = 5},
-            {x = 820.0, y = 6500.0, z = 23.0, heading = 0.0, type = 5},
-            {x = 0.0, y = 6376.0, z = 31.0, heading = 135.0,type = 9}
-        }
-    },
-    {
-        title = "Nurburgring Nordschleife",
-        isEnabled = true,
-        showWaypoints = false,
-        checkpointRadius = 20.0,
-        checkpointTransparency = 0.6,
-        mapBlipId = 315,
-        mapBlipColor = 5,
-        start = { x = 3713.3266601562, y = -6519.0180664062, z = 2190.806640625, heading = 134.7043762207, type = 5 },
-        checkpoints = {
-            { x = 3353.8029785156, y = -6877.1694335938, z = 2184.6547851562, heading = 131.2176361084, type = 5 },
-            { x = 3215.3469238282, y = -6930.9326171875, z = 2177.7607421875, heading = 11.139162063598, type = 5 },
-            { x = 3188.7666015625, y = -6900.5844726562, z = 2178.0241699218, heading = 109.11637115478, type = 5 },
-            { x = 3137.2211914062, y = -7000.87109375, z = 2177.6359863282, heading = 168.81777954102, type = 5 },
-            { x = 3069.7277832032, y = -7250.3427734375, z = 2173.8608398438, heading = 161.44604492188, type = 5 },
-            { x = 3099.2673339844, y = -7367.720703125, z = 2169.2556152344, heading = 241.97760009766, type = 5 },
-            { x = 3179.7121582032, y = -7412.2412109375, z = 2164.6145019532, heading = 214.3480682373, type = 5 },
-            { x = 3126.68359375, y = -7490.8940429688, z = 2158.330078125, heading = 116.47142791748, type = 5 },
-            { x = 2868.5358886718, y = -7701.0649414062, z = 2139.9133300782, heading = 144.72105407714, type = 5 },
-            { x = 2780.58984375, y = -7818.6987304688, z = 2135.9604492188, heading = 99.497375488282, type = 5 },
-            { x = 2734.1455078125, y = -7776.9814453125, z = 2136.0959472656, heading = 352.92767333984, type = 5 },
-            { x = 2870.0798339844, y = -7627.9716796875, z = 2142.9208984375, heading = 314.39126586914, type = 5 },
-            { x = 2956.5979003906, y = -7452.3149414062, z = 2158.9619140625, heading = 15.353079795838, type = 5 },
-            { x = 3003.1708984375, y = -7203.2255859375, z = 2172.4873046875, heading = 341.98635864258, type = 5 },
-            { x = 3023.0451660156, y = -6950.1508789062, z = 2177.6967773438, heading = 66.125411987304, type = 5 },
-            { x = 2902.9328613282, y = -6887.330078125, z = 2174.919921875, heading = 39.401309967042, type = 5 },
-            { x = 2903.8154296875, y = -6815.8447265625, z = 2171.55859375, heading = 325.93545532226, type = 5 },
-            { x = 3161.9052734375, y = -6520.662109375, z = 2159.3249511718, heading = 296.91180419922, type = 5 },
-            { x = 3621.3435058594, y = -6375.7700195312, z = 2181.10546875, heading = 335.75100708008, type = 5 },
-            { x = 3688.80859375, y = -6318.8852539062, z = 2186.1799316406, heading = 285.12023925782, type = 5 },
-            { x = 3827.8430175782, y = -6281.3325195312, z = 2191.1086425782, heading = 304.60830688476, type = 5 },
-            { x = 3829.1818847656, y = -6208.283203125, z = 2197.2668457032, heading = 39.269577026368, type = 5 },
-            { x = 3738.7846679688, y = -6115.0756835938, z = 2196.365234375, heading = 110.06678009034, type = 5 },
-            { x = 3562.1259765625, y = -6304.3872070312, z = 2172.3967285156, heading = 113.4914932251, type = 5 },
-            { x = 2809.7026367188, y = -6003.0561523438, z = 2149.9482421875, heading = 80.79148864746, type = 5 },
-            { x = 2233.0715332032, y = -4653.3618164062, z = 2136.3122558594, heading = 15.723192214966, type = 5 },
-            { x = 1862.3931884766, y = -4069.6293945312, z = 2109.9597167968, heading = 66.36026763916, type = 5 },
-            { x = 1932.094116211, y = -3901.4223632812, z = 2087.4851074218, heading = 290.82498168946, type = 5 },
-            { x = 2733.0063476562, y = -2910.6875, z = 2044.8466796875, heading = 304.0206604004, type = 5 },
-            { x = 3684.6735839844, y = -1943.8540039062, z = 1931.81640625, heading = 270.43563842774, type = 5 },
-            { x = 4621.5087890625, y = -1577.0061035156, z = 1932.0782470704, heading = 303.76055908204, type = 5 },
-            { x = 5108.9892578125, y = -2220.2045898438, z = 1974.226196289, heading = 245.54553222656, type = 5 },
-            { x = 6355.8359375, y = -2381.7883300782, z = 2082.5927734375, heading = 305.28051757812, type = 5 },
-            { x = 6614.3232421875, y = -2502.9721679688, z = 2126.4765625, heading = 307.3380432129, type = 5 },
-            { x = 7358.7670898438, y = -2078.9025878906, z = 2181.7644042968, heading = 254.34376525878, type = 5 },
-            { x = 7909.4233398438, y = -2858.3527832032, z = 2110.0441894532, heading = 182.7716217041, type = 5 },
-            { x = 7475.5063476562, y = -3359.056640625, z = 2109.8671875, heading = 177.39701843262, type = 5 },
-            { x = 7112.8452148438, y = -3809.6164550782, z = 2104.2587890625, heading = 151.30856323242, type = 5 },
-            { x = 6180.2412109375, y = -4196.1044921875, z = 2123.4204101562, heading = 224.30256652832, type = 5 },
-            { x = 6405.744140625, y = -4627.916015625, z = 2125.365234375, heading = 119.32774353028, type = 5 },
-            { x = 4537.255859375, y = -5710.0263671875, z = 2157.5783691406, heading = 132.58056640625, type = 5 },
-            { x = 4233.0688476562, y = -6093.4487304688, z = 2169.9963378906, heading = 138.64822387696, type = 5 },
-            { x = 4115.0004882812, y = -6225.9497070312, z = 2180.1176757812, heading = 157.44969177246, type = 5 },
-            { x = 4028.8940429688, y = -6256.2348632812, z = 2186.9311523438, heading = 98.033226013184, type = 5 },
-            { x = 3846.4174804688, y = -6380.38671875, z = 2191.7783203125, heading = 136.45506286622, type = 5 },
-            { x = 3705.0573730468, y = -6522.4326171875, z = 2190.7019042968, heading = 135.49685668946, type = 9 }
-        }
-    },
-    {
-        title = "Cannonball Run",
-        isEnabled = true,
-        showWaypoints = true,
-        checkpointRadius = 24.0,
-        checkpointTransparency = 1.0,
-        mapBlipId = 315,
-        mapBlipColor = 5,
-        start = { x = -1607.318359375, y = -959.67138671875, z = 12.597019195557, heading = 321.09140014648, type = 5 },
-        checkpoints = {
-            { x = -1460.4228515625, y = -781.34197998047, z = 23.361558914185, heading = 318.8801574707, type = 5 },
-            { x = -1340.3503417969, y = -679.0263671875, z = 25.581365585327, heading = 306.97860717773, type = 5 },
-            { x = -1243.9234619141, y = -566.95849609375, z = 28.111865997314, heading = 33.419361114502, type = 5 },
-            { x = -1426.6506347656, y = -327.95690917969, z = 44.007438659668, heading = 39.909969329834, type = 5 },
-            { x = -1583.845703125, y = -144.46768188477, z = 55.170845031738, heading = 34.813705444336, type = 5 },
-            { x = -1895.6900634766, y = 176.14093017578, z = 81.726440429688, heading = 43.351215362549, type = 5 },
-            { x = -1972.7966308594, y = 538.77508544922, z = 109.95614624023, heading = 349.78002929688, type = 5 },
-            { x = -1733.6348876953, y = 828.24841308594, z = 142.94569396973, heading = 323.63955688477, type = 5 },
-            { x = -1622.5186767578, y = 1139.5323486328, z = 150.15615844727, heading = 13.660859107971, type = 5 },
-            { x = -1546.9471435547, y = 1407.9493408203, z = 124.12697601318, heading = 317.61862182617, type = 5 },
-            { x = -1507.9011230469, y = 1683.7175292969, z = 98.48136138916, heading = 4.4252882003784, type = 5 },
-            { x = -1449.0495605469, y = 1976.0850830078, z = 69.504554748535, heading = 29.093732833862, type = 5 },
-            { x = -1505.7811279297, y = 2131.2114257813, z = 55.617652893066, heading = 329.19528198242, type = 5 },
-            { x = -1425.1112060547, y = 2147.1608886719, z = 53.005302429199, heading = 269.25903320313, type = 5 },
-            { x = -1356.0765380859, y = 2220.62109375, z = 48.389919281006, heading = 354.47640991211, type = 5 },
-            { x = -1297.9562988281, y = 2488.7194824219, z = 21.916236877441, heading = 317.03799438477, type = 5 },
-            { x = -1123.8458251953, y = 2657.6137695313, z = 17.203315734863, heading = 310.96087646484, type = 5 },
-            { x = -859.53430175781, y = 2750.5139160156, z = 22.800928115845, heading = 274.66470336914, type = 5 },
-            { x = -537.13549804688, y = 2846.5302734375, z = 33.907627105713, heading = 261.95040893555, type = 5 },
-            { x = -209.5178527832, y = 2874.6220703125, z = 46.778469085693, heading = 248.77243041992, type = 5 },
-            { x = 69.805358886719, y = 2732.6301269531, z = 55.677001953125, heading = 226.16117858887, type = 5 },
-            { x = 331.44790649414, y = 2648.9692382813, z = 44.302200317383, heading = 287.69750976563, type = 5 },
-            { x = 961.46356201172, y = 2693.6887207031, z = 39.790191650391, heading = 269.58987426758, type = 5 },
-            { x = 1543.1647949219, y = 2775.83203125, z = 37.697772979736, heading = 303.06399536133, type = 5 },
-            { x = 1975.9383544922, y = 2979.5173339844, z = 45.346519470215, heading = 281.96737670898, type = 5 },
-            { x = 2295.8908691406, y = 2995.9904785156, z = 46.215560913086, heading = 250.00836181641, type = 5 },
-            { x = 2470.4860839844, y = 2893.2915039063, z = 46.883125305176, heading = 320.52627563477, type = 5 },
-            { x = 2715.75390625, y = 3212.0219726563, z = 53.770889282227, heading = 328.04644775391, type = 5 },
-            { x = 2901.0354003906, y = 3659.1994628906, z = 52.231853485107, heading = 344.22540283203, type = 5 },
-            { x = 2864.6066894531, y = 4240.138671875, z = 49.647491455078, heading = 17.717800140381, type = 5 },
-            { x = 2584.5341796875, y = 5317.4731445313, z = 44.159732818604, heading = 16.238145828247, type = 5 },
-            { x = 2307.0017089844, y = 5925.72265625, z = 48.012245178223, heading = 38.409969329834, type = 5 },
-            { x = 2085.9475097656, y = 6110.4301757813, z = 50.005531311035, heading = 51.440216064453, type = 5 },
-            { x = 1904.2946777344, y = 6344.375, z = 41.979625701904, heading = 65.717811584473, type = 5 },
-            { x = 1512.3416748047, y = 6450.8530273438, z = 22.291770935059, heading = 66.489120483398, type = 5 },
-            { x = 909.94793701172, y = 6494.9145507813, z = 20.853240966797, heading = 88.569923400879, type = 5 },
-            { x = 389.83612060546, y = 6571.330078125, z = 26.932916641236, heading = 87.253578186036, type = 5 },
-            { x = 127.84744262696, y = 6554.578125, z = 30.927782058716, heading = 43.02042388916, type = 5 },
-            { x = 49.179161071778, y = 6634.1215820312, z = 30.892223358154, heading = 44.478343963624, type = 5 },
-            { x = -30.021013259888, y = 6620.7524414062, z = 29.751941680908, heading = 125.5305480957, type = 9 }
-        }
-    },
-    {
-        title = "Observatory Loop",
-        isEnabled = true,
-        showWaypoints = true,
-        checkpointRadius = 16.0,
-        checkpointTransparency = 1.0,
-        mapBlipId = 315,
-        mapBlipColor = 5,
-        start = { x = 302.28506469726, y = 1101.4989013672, z = 215.9768371582, heading = 30.918949127198, type = 5 },
-        checkpoints = {
-            { x = 201.13650512695, y = 1351.2955322266, z = 241.38609313965, heading = 65.926895141602, type = 5 },
-            { x = 61.59497833252, y = 1423.3917236328, z = 264.47671508789, heading = 40.1181640625, type = 5 },
-            { x = -130.38139343262, y = 1511.5137939453, z = 287.22885131836, heading = 89.721450805664, type = 5 },
-            { x = -197.52734375, y = 1439.181640625, z = 288.8005065918, heading = 184.9315032959, type = 5 },
-            { x = -281.42712402344, y = 1219.5548095703, z = 317.37887573242, heading = 145.52589416504, type = 5 },
-            { x = -407.10946655273, y = 1184.5893554688, z = 325.11770629883, heading = 76.064628601074, type = 5 },
-            { x = -470.83023071289, y = 1263.3680419922, z = 316.5876159668, heading = 317.52450561523, type = 5 },
-            { x = -435.9953918457, y = 1404.7330322266, z = 293.5729675293, heading = 321.49356079102, type = 5 },
-            { x = -274.07931518555, y = 1475.8588867188, z = 288.50787353516, heading = 284.57989501953, type = 5 },
-            { x = -89.467720031738, y = 1507.1181640625, z = 283.19018554688, heading = 257.96508789063, type = 5 },
-            { x = 25.153619766235, y = 1435.6931152344, z = 270.3708190918, heading = 278.48516845703, type = 5 },
-            { x = 123.28765869141, y = 1392.9395751953, z = 255.89883422852, heading = 268.3034362793, type = 5 },
-            { x = 245.89440917969, y = 1297.1911621094, z = 235.24789428711, heading = 190.62579345703, type = 5 },
-            { x = 287.42782592773, y = 1101.6944580078, z = 216.97271728516, heading = 205.25936889648, type = 9 }
-        }
-    },
-    {
-        title = "Hollywood Hills",
-        isEnabled = true,
-        showWaypoints = true,
-        checkpointRadius = 16.0,
-        checkpointTransparency = 1.0,
-        mapBlipId = 315,
-        mapBlipColor = 5,
-        start = { x = 352.05926513672, y = 113.04263305664, z = 102.48695373535, heading = 340.93218994141, type = 5 },
-        checkpoints = {
-            { x = 393.53713989258, y = 223.80508422852, z = 102.67239379883, heading = 337.41104125977, type = 5 },
-            { x = 586.15447998047, y = 280.23156738281, z = 103.09062957764, heading = 333.55163574219, type = 5 },
-            { x = 853.1240234375, y = 369.83282470703, z = 117.70520019531, heading = 315.78994750977, type = 5 },
-            { x = 948.91888427734, y = 519.84808349609, z = 112.5553894043, heading = 264.78237915039, type = 5 },
-            { x = 1101.0074462891, y = 588.45526123047, z = 101.70491027832, heading = 342.15698242188, type = 5 },
-            { x = 1144.1712646484, y = 741.54058837891, z = 144.23280334473, heading = 51.473220825195, type = 5 },
-            { x = 1025.8093261719, y = 690.43225097656, z = 159.18605041504, heading = 145.73094177246, type = 5 },
-            { x = 931.58880615234, y = 682.73876953125, z = 176.82684326172, heading = 10.241680145264, type = 5 },
-            { x = 957.19891357422, y = 968.50799560547, z = 223.88296508789, heading = 58.789539337158, type = 5 },
-            { x = 780.45721435547, y = 867.58276367188, z = 217.45401000977, heading = 154.3660736084, type = 5 },
-            { x = 648.15057373047, y = 781.72277832031, z = 204.70776367188, heading = 88.051315307617, type = 5 },
-            { x = 501.83450317383, y = 862.40264892578, z = 197.48085021973, heading = 68.052467346191, type = 5 },
-            { x = 471.42984008789, y = 913.439453125, z = 197.93460083008, heading = 346.66537475586, type = 5 },
-            { x = 535.99639892578, y = 1053.1295166016, z = 222.24603271484, heading = 5.8948431015015, type = 5 },
-            { x = 461.87451171875, y = 1102.5607910156, z = 230.83129882813, heading = 77.158508300781, type = 5 },
-            { x = 411.60482788086, y = 1239.8614501953, z = 256.15197753906, heading = 1.1716737747192, type = 5 },
-            { x = 503.56091308594, y = 1314.6312255859, z = 283.54666137695, heading = 292.54150390625, type = 5 },
-            { x = 600.24774169922, y = 1406.8585205078, z = 314.74124145508, heading = 270.03912353516, type = 5 },
-            { x = 731.66064453125, y = 1356.7783203125, z = 336.94409179688, heading = 282.65274047852, type = 5 },
-            { x = 857.69366455078, y = 1309.7030029297, z = 356.31665039063, heading = 175.57710266113, type = 5 },
-            { x = 825.40734863281, y = 1276.6529541016, z = 359.99813842773, heading = 94.132011413574, type = 9 }
-        }
-    },
-    {
-        title = "Highway Sprint",
-        isEnabled = true,
-        showWaypoints = true,
-        checkpointRadius = 20.0,
-        checkpointTransparency = 1.0,
-        mapBlipId = 315,
-        mapBlipColor = 5,
-        start = { x = 75.513229370117, y = -1267.1221923828, z = 28.65661239624, heading = 267.10388183594, type = 5 },
-        checkpoints = {
-            { x = 245.46575927734, y = -1226.30078125, z = 37.771774291992, heading = 270.39596557617, type = 5 },
-            { x = 828.93774414063, y = -1201.6872558594, z = 45.167724609375, heading = 272.86663818359, type = 5 },
-            { x = 1120.2836914063, y = -1189.5764160156, z = 55.044425964355, heading = 271.21286010742, type = 5 },
-            { x = 1664.4847412109, y = -940.15826416016, z = 64.514312744141, heading = 300.4723815918, type = 5 },
-            { x = 2046.6374511719, y = -656.87005615234, z = 94.291999816895, heading = 308.82989501953, type = 5 },
-            { x = 2382.7224121094, y = -300.69787597656, z = 84.462699890137, heading = 329.07653808594, type = 5 },
-            { x = 2589.7526855469, y = 183.37069702148, z = 97.677200317383, heading = 345.33544921875, type = 5 },
-            { x = 2623.666015625, y = 581.41815185547, z = 94.804725646973, heading = 9.5683755874634, type = 5 },
-            { x = 2435.982421875, y = 988.86212158203, z = 85.55233001709, heading = 39.079048156738, type = 5 },
-            { x = 2083.1940917969, y = 1437.5494384766, z = 75.084121704102, heading = 28.737808227539, type = 5 },
-            { x = 1880.8665771484, y = 2110.0961914063, z = 54.124622344971, heading = 5.5711803436279, type = 5 },
-            { x = 2028.6341552734, y = 2562.3408203125, z = 54.112937927246, heading = 315.82192993164, type = 5 },
-            { x = 2417.0134277344, y = 2894.4228515625, z = 39.738132476807, heading = 308.01019287109, type = 5 },
-            { x = 2914.9418945313, y = 3708.0886230469, z = 52.139362335205, heading = 344.47491455078, type = 5 },
-            { x = 2757.3366699219, y = 4601.6293945313, z = 44.669410705566, heading = 14.183204650879, type = 5 },
-            { x = 2537.2282714844, y = 5471.9150390625, z = 44.061031341553, heading = 17.688333511353, type = 9 }
-        }
-    },
-    {
-        title = "Lakeside Loop",
-        isEnabled = true,
-        showWaypoints = true,
-        checkpointRadius = 24.0,
-        checkpointTransparency = 1.0,
-        mapBlipId = 315,
-        mapBlipColor = 5,
-        start = { x = 1886.826171875, y = 3622.4047851562, z = 33.811820983886, heading = 118.15670776368, type = 5 },
-        checkpoints = {
-            { x = 1711.3807373046, y = 3520.2746582032, z = 36.014781951904, heading = 118.77588653564, type = 5 },
-            { x = 1462.6616210938, y = 3501.1486816406, z = 35.690353393554, heading = 74.668426513672, type = 5 },
-            { x = 1206.35546875, y = 3539.3190917968, z = 34.728713989258, heading = 87.506393432618, type = 5 },
-            { x = 776.36102294922, y = 3533.2995605468, z = 33.792770385742, heading = 95.614479064942, type = 5 },
-            { x = 359.71536254882, y = 3463.2805175782, z = 35.06834411621, heading = 111.85373687744, type = 5 },
-            { x = 223.08010864258, y = 3396.1552734375, z = 37.935890197754, heading = 93.261711120606, type = 5 },
-            { x = 93.846809387208, y = 3455.8029785156, z = 39.333072662354, heading = 6.060736656189, type = 5 },
-            { x = 38.593032836914, y = 3600.6357421875, z = 39.329750061036, heading = 74.91145324707, type = 5 },
-            { x = -113.98025512696, y = 3624.1779785156, z = 44.394584655762, heading = 55.176532745362, type = 5 },
-            { x = -215.44192504882, y = 3824.8474121094, z = 37.782653808594, heading = 16.481645584106, type = 5 },
-            { x = -229.21249389648, y = 4130.1157226562, z = 40.016460418702, heading = 345.9859008789, type = 5 },
-            { x = -73.620727539062, y = 4332.7094726562, z = 49.825462341308, heading = 341.80001831054, type = 5 },
-            { x = 46.478607177734, y = 4452.07421875, z = 62.420101165772, heading = 258.33905029296, type = 5 },
-            { x = 219.50521850586, y = 4461.28125, z = 69.154067993164, heading = 313.70938110352, type = 5 },
-            { x = 372.04113769532, y = 4445.9677734375, z = 62.40107345581, heading = 198.80307006836, type = 5 },
-            { x = 507.0467224121, y = 4279.6162109375, z = 53.12911605835, heading = 220.28533935546, type = 5 },
-            { x = 658.1005859375, y = 4218.4741210938, z = 52.60580444336, heading = 267.40612792968, type = 5 },
-            { x = 862.02856445312, y = 4264.1791992188, z = 50.318134307862, heading = 3.4469072818756, type = 5 },
-            { x = 816.0771484375, y = 4455.5751953125, z = 52.209590911866, heading = 13.039127349854, type = 5 },
-            { x = 860.63250732422, y = 4485.0107421875, z = 52.576694488526, heading = 231.01950073242, type = 5 },
-            { x = 1082.4252929688, y = 4439.3784179688, z = 59.7551612854, heading = 250.73699951172, type = 5 },
-            { x = 1266.754272461, y = 4466.8696289062, z = 58.386367797852, heading = 274.06317138672, type = 5 },
-            { x = 1349.6512451172, y = 4486.46875, z = 58.326972961426, heading = 290.29901123046, type = 5 },
-            { x = 1560.3768310546, y = 4566.6674804688, z = 49.121070861816, heading = 276.58981323242, type = 5 },
-            { x = 1837.927734375, y = 4575.80078125, z = 35.7375831604, heading = 276.8621520996, type = 5 },
-            { x = 2091.0400390625, y = 4707.3481445312, z = 40.748161315918, heading = 317.01858520508, type = 5 },
-            { x = 2366.7451171875, y = 4675.9145507812, z = 35.594787597656, heading = 222.09948730468, type = 5 },
-            { x = 2483.2963867188, y = 4447.0405273438, z = 35.005695343018, heading = 182.41502380372, type = 5 },
-            { x = 2500.3842773438, y = 4111.2534179688, z = 37.965755462646, heading = 157.26278686524, type = 5 },
-            { x = 2262.7744140625, y = 3838.9599609375, z = 33.896495819092, heading = 117.32835388184, type = 5 },
-            { x = 1851.0246582032, y = 3601.6157226562, z = 34.37642288208, heading = 119.03327941894, type = 9 }
-        }
-    },
-    {
-        title = "North Rallycross ",
-        isEnabled = true,
-        showWaypoints = true,
-        checkpointRadius = 20.0,
-        checkpointTransparency = 1.0,
-        mapBlipId = 315,
-        mapBlipColor = 5,
-        start = { x = -2499.0197753906, y = 3666.5871582032, z = 12.954191207886, heading = 81.60691833496, type = 5 },
-        checkpoints = {
-            { x = -2633.7170410156, y = 3475.1098632812, z = 14.487664222718, heading = 92.000801086426, type = 5 },
-            { x = -2966.669921875, y = 3496.8244628906, z = 8.6374959945678, heading = 141.51609802246, type = 5 },
-            { x = -2989.6901855468, y = 3290.7316894532, z = 9.561598777771, heading = 211.46875, type = 5 },
-            { x = -2760.3291015625, y = 3084.1491699218, z = 8.5316543579102, heading = 233.60375976562, type = 5 },
-            { x = -2626.3073730468, y = 2904.9313964844, z = 4.9756264686584, heading = 228.95942687988, type = 5 },
-            { x = -2465.6428222656, y = 2837.05078125, z = 3.263032913208, heading = 272.26171875, type = 5 },
-            { x = -2273.5065917968, y = 2838.6962890625, z = 3.0335659980774, heading = 259.87799072266, type = 5 },
-            { x = -2124.82421875, y = 2715.33984375, z = 3.0864045619964, heading = 254.40844726562, type = 5 },
-            { x = -1855.629272461, y = 2691.4741210938, z = 3.7209014892578, heading = 267.99426269532, type = 5 },
-            { x = -1741.4565429688, y = 2744.5908203125, z = 5.154116153717, heading = 285.24072265625, type = 5 },
-            { x = -1629.551147461, y = 2708.9465332032, z = 5.3154859542846, heading = 287.2060546875, type = 5 },
-            { x = -1469.754272461, y = 2682.4565429688, z = 3.3802332878112, heading = 288.75396728516, type = 5 },
-            { x = -1203.5026855468, y = 2800.7104492188, z = 14.475507736206, heading = 320.32543945312, type = 5 },
-            { x = -1016.655090332, y = 2895.8278808594, z = 11.531224250794, heading = 273.8276977539, type = 5 },
-            { x = -790.90063476562, y = 2893.7612304688, z = 24.756513595582, heading = 311.09204101562, type = 5 },
-            { x = -615.11547851562, y = 3016.8815917968, z = 24.307655334472, heading = 275.87579345704, type = 5 },
-            { x = -451.07342529296, y = 2970.796875, z = 24.589477539062, heading = 259.12017822266, type = 5 },
-            { x = -265.79907226562, y = 2948.3681640625, z = 29.465747833252, heading = 273.07934570312, type = 5 },
-            { x = -107.0493774414, y = 2979.8776855468, z = 36.081687927246, heading = 285.74063110352, type = 5 },
-            { x = 98.11506652832, y = 3108.0971679688, z = 40.855293273926, heading = 321.23254394532, type = 5 },
-            { x = 176.24142456054, y = 3235.59765625, z = 41.773357391358, heading = 331.16900634766, type = 5 },
-            { x = 226.01635742188, y = 3353.8967285156, z = 39.22008895874, heading = 19.685445785522, type = 5 },
-            { x = 95.192169189454, y = 3485.7375488282, z = 39.410301208496, heading = 341.30731201172, type = 5 },
-            { x = 74.494873046875, y = 3589.2866210938, z = 39.421661376954, heading = 76.19287109375, type = 5 },
-            { x = -139.40495300292, y = 3642.5458984375, z = 45.474407196044, heading = 52.72838973999, type = 5 },
-            { x = -222.28861999512, y = 3855.259765625, z = 38.859828948974, heading = 12.133317947388, type = 5 },
-            { x = -262.49810791016, y = 3933.7314453125, z = 41.5452003479, heading = 38.738338470458, type = 5 },
-            { x = -408.74649047852, y = 3951.4167480468, z = 62.755989074708, heading = 112.7532043457, type = 5 },
-            { x = -564.9985961914, y = 3969.4855957032, z = 106.0877609253, heading = 43.403888702392, type = 5 },
-            { x = -651.44354248046, y = 4011.5671386718, z = 126.74110412598, heading = 72.391319274902, type = 5 },
-            { x = -782.36138916016, y = 4051.826171875, z = 155.87812805176, heading = 87.594024658204, type = 5 },
-            { x = -886.56024169922, y = 4094.8879394532, z = 163.09080505372, heading = 65.014793395996, type = 5 },
-            { x = -1075.157836914, y = 4273.146484375, z = 100.55354309082, heading = 71.051765441894, type = 5 },
-            { x = -1290.1850585938, y = 4261.9194335938, z = 63.584247589112, heading = 152.71101379394, type = 5 },
-            { x = -1359.0450439454, y = 4130.0244140625, z = 62.67975616455, heading = 72.865257263184, type = 5 },
-            { x = -1460.0047607422, y = 4223.5126953125, z = 51.78816986084, heading = 75.20492553711, type = 5 },
-            { x = -1577.794921875, y = 4203.2358398438, z = 79.59358215332, heading = 99.154815673828, type = 5 },
-            { x = -1725.0910644532, y = 4328.798828125, z = 64.1781539917, heading = 47.08869934082, type = 5 },
-            { x = -1988.5760498046, y = 4499.5190429688, z = 30.565328598022, heading = 59.613861083984, type = 5 },
-            { x = -2175.0705566406, y = 4514.2114257812, z = 34.90055847168, heading = 114.7021484375, type = 5 },
-            { x = -2256.43359375, y = 4407.7456054688, z = 39.290161132812, heading = 162.9909210205, type = 5 },
-            { x = -2261.0397949218, y = 4347.6440429688, z = 43.041870117188, heading = 190.64225769042, type = 9 }
-        }
-    },
-    {
-        title = "Hillside Loop",
-        isEnabled = true,
-        showWaypoints = true,
-        checkpointRadius = 16.0,
-        checkpointTransparency = 1.0,
-        mapBlipId = 315,
-        mapBlipColor = 5,
-        start = { x = 1075.298461914, y = 746.6328125, z = 154.2712097168, heading = 121.91492462158, type = 5 },
-        checkpoints = {
-            { x = 969.58581542968, y = 645.78497314454, z = 165.17358398438, heading = 78.142349243164, type = 5 },
-            { x = 929.212890625, y = 741.45281982422, z = 183.17880249024, heading = 356.3341369629, type = 5 },
-            { x = 990.66833496094, y = 926.40588378906, z = 213.06823730468, heading = 18.209358215332, type = 5 },
-            { x = 852.70709228516, y = 981.2666015625, z = 240.5387878418, heading = 108.46174621582, type = 5 },
-            { x = 666.72650146484, y = 782.78662109375, z = 204.87017822266, heading = 93.711532592774, type = 5 },
-            { x = 403.40838623046, y = 908.32122802734, z = 199.61280822754, heading = 25.59401512146, type = 5 },
-            { x = 293.9772644043, y = 1001.8652954102, z = 209.77770996094, heading = 101.9250793457, type = 5 },
-            { x = 191.59265136718, y = 916.29223632812, z = 208.24444580078, heading = 90.105865478516, type = 5 },
-            { x = 59.02917098999, y = 1030.1206054688, z = 216.92413330078, heading = 65.812629699708, type = 5 },
-            { x = -275.8275756836, y = 1054.9682617188, z = 234.73652648926, heading = 109.05806732178, type = 5 },
-            { x = -343.32287597656, y = 967.30114746094, z = 232.64987182618, heading = 112.64511871338, type = 5 },
-            { x = -437.24960327148, y = 901.29528808594, z = 236.9234161377, heading = 101.32470703125, type = 5 },
-            { x = -564.4642944336, y = 956.24981689454, z = 242.15672302246, heading = 36.907333374024, type = 5 },
-            { x = -724.94714355468, y = 1013.831237793, z = 238.6925201416, heading = 350.39776611328, type = 5 },
-            { x = -714.42883300782, y = 1126.9636230468, z = 260.46542358398, heading = 31.252969741822, type = 5 },
-            { x = -763.58471679688, y = 1184.3771972656, z = 261.6837463379, heading = 23.987768173218, type = 5 },
-            { x = -804.34552001954, y = 1424.1372070312, z = 241.80868530274, heading = 353.0701599121, type = 5 },
-            { x = -769.86907958984, y = 1675.2131347656, z = 200.53128051758, heading = 319.43444824218, type = 5 },
-            { x = -677.14093017578, y = 1742.7390136718, z = 206.18270874024, heading = 252.91632080078, type = 5 },
-            { x = -576.66729736328, y = 1824.5227050782, z = 212.1713256836, heading = 338.91174316406, type = 5 },
-            { x = -499.48190307618, y = 1992.1813964844, z = 206.03666687012, heading = 282.18432617188, type = 5 },
-            { x = -409.51181030274, y = 1918.7518310546, z = 206.8990020752, heading = 202.36854553222, type = 5 },
-            { x = -269.09524536132, y = 1825.804321289, z = 198.23260498046, heading = 291.8083190918, type = 5 },
-            { x = -141.86988830566, y = 1865.2860107422, z = 197.57287597656, heading = 248.73611450196, type = 5 },
-            { x = -0.93955796957016, y = 1765.8305664062, z = 216.4091796875, heading = 190.2306213379, type = 5 },
-            { x = 163.80993652344, y = 1659.3505859375, z = 228.5812072754, heading = 295.48818969726, type = 5 },
-            { x = 363.42764282226, y = 1715.7644042968, z = 239.94078063964, heading = 311.31579589844, type = 5 },
-            { x = 553.83581542968, y = 1802.0145263672, z = 212.27737426758, heading = 264.99920654296, type = 5 },
-            { x = 797.60485839844, y = 1707.359008789, z = 174.52555847168, heading = 272.9049987793, type = 5 },
-            { x = 1041.6525878906, y = 1705.5604248046, z = 162.08283996582, heading = 229.91752624512, type = 5 },
-            { x = 1230.034790039, y = 1255.1221923828, z = 143.87908935546, heading = 168.75427246094, type = 5 },
-            { x = 1149.5358886718, y = 1117.4764404296, z = 171.4916381836, heading = 183.98384094238, type = 5 },
-            { x = 1235.7309570312, y = 1017.043395996, z = 143.4641571045, heading = 184.27030944824, type = 5 },
-            { x = 1164.5404052734, y = 918.81359863282, z = 150.2805633545, heading = 138.49966430664, type = 5 },
-            { x = 1079.446899414, y = 776.37188720704, z = 153.45388793946, heading = 149.79602050782, type = 9 }
-        }
-    }
 }

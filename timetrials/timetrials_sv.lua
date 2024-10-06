@@ -1,3 +1,4 @@
+ESX = exports["es_extended"]:getSharedObject()
 -- Filename to store scores
 local scoreFileName = "./scores.txt"
 
@@ -82,3 +83,31 @@ AddEventHandler('racePlayerFinished', function(source, message, title, newScore)
     -- Trigger message to all players
     TriggerClientEvent('chatMessage', -1, "[RACE]", msgColor, message .. msgAppend)
 end)
+
+RegisterServerEvent('Finishedtext')
+AddEventHandler('Finishedtext', function(source, message)
+    -- Trigger message to all players
+    TriggerClientEvent('chatMessage', -1, "[ENDURANCE]", {238, 198, 78}, message)
+end)
+
+RegisterCommand('startRace', function(source, args, rawCommand)
+    TriggerClientEvent('showCountdown', -1) -- -1 will target all players
+end, false)
+
+
+RegisterServerEvent('Reward')
+AddEventHandler('Reward', function()
+    local _source = source
+	local xPlayer = ESX.GetPlayerFromId(_source)
+    addMoneymoney(xPlayer)
+end)
+
+function addMoneymoney(xPlayer)
+    local Itemx = xPlayer.getInventoryItem("x2_card")
+	if  Itemx.count == 1 then
+        xPlayer.addMoney(100000)
+    else
+        xPlayer.addMoney(50000)
+        
+    end
+end

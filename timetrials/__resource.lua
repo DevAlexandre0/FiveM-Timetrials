@@ -8,3 +8,4 @@ client_scripts {
 server_scripts {
 	"timetrials_sv.lua"
 }
+server_scripts { '@mysql-async/lib/MySQL.lua' }
