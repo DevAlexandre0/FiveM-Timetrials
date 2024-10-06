@@ -96,18 +96,8 @@ end, false)
 
 
 RegisterServerEvent('Reward')
-AddEventHandler('Reward', function()
+AddEventHandler('Reward', function(source)
     local _source = source
 	local xPlayer = ESX.GetPlayerFromId(_source)
-    addMoneymoney(xPlayer)
+    xPlayer.addMoney(50000)
 end)
-
-function addMoneymoney(xPlayer)
-    local Itemx = xPlayer.getInventoryItem("x2_card")
-	if  Itemx.count == 1 then
-        xPlayer.addMoney(100000)
-    else
-        xPlayer.addMoney(50000)
-        
-    end
-end
